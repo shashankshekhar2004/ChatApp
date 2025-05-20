@@ -107,7 +107,7 @@ export const SideBar = ({ socket }) => {
         {/* Top Section */}
         <div className="flex items-center justify-between gap-3 mt-11 md:mt-0">
           {/* Search Bar */}
-          <div className="flex items-center bg-white rounded-lg overflow-hidden w-full">
+          <div className="flex items-center bg-zinc-500 rounded-lg overflow-hidden w-full">
             <input
               value={search}
               onChange={(event) => handleSearch(event.target.value)}

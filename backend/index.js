@@ -65,7 +65,7 @@ io.on('connection',(socket)=>{
   // when connected
   console.log('a user connected',socket.id)
   socket.on('AddUserSocket',(userId)=>{
-    console.log('userid',userId)
+    //console.log('userid',userId)
     Addusers(userId, socket.id)
     io.emit('getUsers', users)
     //console.log('usersfromscoket',users)
@@ -74,9 +74,9 @@ io.on('connection',(socket)=>{
 // message
 socket.on('sendMessage', (data) => {
   const { senderId, receiverId, message } = data.messagedata;
-  console.log('revierId',receiverId)
+  //console.log('revierId',receiverId)
   const user = GetUser(receiverId);
-  console.log('senderUser',user)
+  //console.log('senderUser',user)
   if (user?.socketId) {
     io.to(user.socketId).emit('receiveMessage', {
       userId: senderId,
@@ -93,7 +93,7 @@ socket.on('sendMessage', (data) => {
     console.log('a user disconnected')
     ReomveUser(socket.id)
     io.emit('getUsers', users)
-    console.log(users)
+    //console.log(users)
   })
 })
 // Start the server
