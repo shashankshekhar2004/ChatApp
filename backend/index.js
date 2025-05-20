@@ -85,7 +85,7 @@ socket.on('sendMessage', (data) => {
   } else {
     console.log('Receiver not connected');
   }
-  console.log('messagedata', data);
+  //console.log('messagedata', data);
 });
 
   // when desction
