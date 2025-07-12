@@ -12,16 +12,16 @@ export const SendMessage = async (req, res) => {
     }
   
     try {
-      // Create a new message
+      
       const newMessage = new MessageModel({
         userId: senderId,
         message,
       });
       
-      // Save the message first
+     
       const savedMessage = await newMessage.save();
   
-      // First try to find an existing conversation
+     
       let conversation = await ConversationModel.findOne({
         members: { 
           $all: [senderId, receiverId],
@@ -30,7 +30,7 @@ export const SendMessage = async (req, res) => {
       });
   
       if (conversation) {
-        // If conversation exists, update it
+       
         conversation = await ConversationModel.findByIdAndUpdate(
           conversation._id,
           {
@@ -39,7 +39,7 @@ export const SendMessage = async (req, res) => {
           { new: true }
         );
       } else {
-        // If no conversation exists, create a new one
+       
         conversation = await ConversationModel.create({
           members: [senderId, receiverId],
           messages: [savedMessage._id]
@@ -74,7 +74,7 @@ export const getMessages = async (req, res) => {
     }
 
     try {
-      // Find the conversation
+ 
       const conversation = await ConversationModel.findOne({
         members: {
           $all: [senderId, receiverId],

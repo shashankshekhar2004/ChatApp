@@ -74,7 +74,6 @@ export const Chat = ({ socket }) => {
         message: inputvalue.current.value,
       };
 
-      // Emit message via Socket.IO
       socket.emit("sendMessage", { messagedata });
 
       const UpdateMessage = {
@@ -88,7 +87,6 @@ export const Chat = ({ socket }) => {
           : [UpdateMessage]
       );
 
-      // Save message to database
       await axios.post(`${Baseurl}/api/messages/send_message`, messagedata);
 
       inputvalue.current.value = "";
@@ -113,7 +111,6 @@ export const Chat = ({ socket }) => {
         </div>
       ) : (
         <>
-          {/* Chat Header */}
           <div className="w-full  fixed top-0 z-10 flex justify-between items-center py-2 px-4 bg-amber-200 shadow-md">
             <div className="flex gap-[10px] items-center">
               <img
@@ -138,7 +135,6 @@ export const Chat = ({ socket }) => {
             </div>
           </div>
 
-          {/* Chat Messages */}
           <div className="flex-1 relative mt-[65px]">
             {messages &&
               Array.isArray(messages) &&
@@ -165,7 +161,6 @@ export const Chat = ({ socket }) => {
               ))}
           </div>
 
-          {/* Input Field */}
           <div className="flex items-center px-4 py-2 sticky bottom-0 bg-gray-100 rounded-[10px]">
             <div className="relative flex-1">
               <input

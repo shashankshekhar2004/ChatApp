@@ -89,7 +89,6 @@ export const SideBar = ({ socket }) => {
 
   return (
     <>
-      {/* Toggle Button */}
       <button
         className="md:hidden fixed top-4 left-4 text-xl z-[9999] p-2 bg-white text-black rounded-lg shadow-md"
         onClick={() => setSidebarOpen(!isSidebarOpen)}
@@ -97,16 +96,13 @@ export const SideBar = ({ socket }) => {
         <FaBars />
       </button>
 
-      {/* Sidebar */}
       <div
         className={`sidebar w-full fixed top-0 left-0 z-50 h-screen bg-zinc-800 shadow-2xl transition-transform duration-300 ease-in-out flex flex-col py-6 px-4 
         md:static md:translate-x-0 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        {/* Top Section */}
         <div className="flex items-center justify-between gap-3 mt-11 md:mt-0">
-          {/* Search Bar */}
           <div className="flex items-center bg-zinc-500 rounded-lg overflow-hidden w-full">
             <input
               value={search}
@@ -120,7 +116,6 @@ export const SideBar = ({ socket }) => {
             </button>
           </div>
 
-          {/* Profile Dropdown */}
           <div className="relative font-[sans-serif]" ref={dropdownRef}>
             <button
               type="button"
@@ -153,7 +148,6 @@ export const SideBar = ({ socket }) => {
           </div>
         </div>
 
-        {/* User List */}
         <div className="my-8 flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-300">
           <h6 className="text-sm text-blue-600 font-semibold mb-6">Teams</h6>
           <ul className="space-y-6">
@@ -179,7 +173,6 @@ export const SideBar = ({ socket }) => {
           </ul>
         </div>
 
-        {/* Logout Button */}
         <div className="py-4 border-t border-gray-600 mt-4">
           <button
             onClick={handleLogout}

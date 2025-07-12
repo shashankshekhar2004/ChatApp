@@ -69,7 +69,6 @@ export default function Register() {
         </h1>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Profile Upload */}
           <div className="flex flex-col items-center">
             <label htmlFor="profile" className="relative cursor-pointer group">
               <img
@@ -95,7 +94,6 @@ export default function Register() {
             </p>
           </div>
 
-          {/* Name */}
           <div>
             <label
               htmlFor="name"
@@ -115,7 +113,6 @@ export default function Register() {
             />
           </div>
 
-          {/* Email */}
           <div>
             <label
               htmlFor="email"
@@ -135,7 +132,6 @@ export default function Register() {
             />
           </div>
 
-          {/* Password */}
           <div>
             <label
               htmlFor="password"
@@ -155,7 +151,6 @@ export default function Register() {
             />
           </div>
 
-          {/* Submit button */}
           <button
             type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
@@ -163,7 +158,6 @@ export default function Register() {
             Register
           </button>
 
-          {/* Login redirect */}
           <p className="text-sm text-center text-gray-700 dark:text-gray-300 mt-4">
             Already have an account?
             <button
