@@ -5,7 +5,6 @@ import fs from 'fs';
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const dir = 'public/images';
-    // Check if the directory exists, if not, create it
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
     }

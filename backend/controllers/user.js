@@ -3,6 +3,7 @@ import bcryptjs from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 export const Register=async(req,res)=>{
      try {
+          console.log("here//");
         const {name,email,password}=req.body
           if (!name || !email || !password || !req.file) {
             return res.status(400).json({success:false,message:`${

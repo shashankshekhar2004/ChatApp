@@ -8,16 +8,16 @@ import AuthRoutes from './routes/user.js';
 import DbCon from './db/db.js';
 import MessageRoutes from './routes/messages.js';
 
-// Load environment variables
+
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
-const NODE_ENV = process.env.NODE_ENV || 'development'; // Default to 'development'
+const NODE_ENV = process.env.NODE_ENV || 'development'; 
 const app = express();
 
-// db connection 
-DbCon();
 
+DbCon();
+  console.log("here//");
 app.use(express.json());
 app.use(express.static('public'));
 app.use(cors());
@@ -37,13 +37,11 @@ if (NODE_ENV === 'production') {
   });
 }
 
-// Create HTTP Server
 const server = createServer(app);
 
-// Socket.IO setup
 const io = new Server(server, {
   cors: {
-    origin: '*', // Update with your frontend domain for production
+    origin: '*', 
     methods: ['GET', 'POST'],
   },
 });
@@ -96,7 +94,6 @@ socket.on('sendMessage', (data) => {
     //console.log(users)
   })
 })
-// Start the server
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT} in ${NODE_ENV} mode`);
 });

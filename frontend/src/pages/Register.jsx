@@ -27,6 +27,7 @@ export default function Register() {
           "Content-Type": "multipart/form-data",
         },
       });
+      console.log("here//");
       const data = await res.data;
 
       if (res.status === 200) {
